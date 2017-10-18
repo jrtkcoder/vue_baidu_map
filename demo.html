@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="bm-view">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<!--引入vue文件-->
+	<script type="text/javascript" src="./vue.js"></script>
+	<!--地图组件-->
+	<script src="./index.js"></script>
+</head>
+<body class="bm-view">
+	<baidu-map id="app" class="bm-view" :center="center" zoom="15" :scroll-wheel-zoom="true">  
+		<bm-scale anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-scale>
+		<bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="true"></bm-overview-map>
+		<bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
+	</baidu-map>	
+	
+	<script type="text/javascript">
+	    Vue.use(VueBaiduMap.default, {
+     		ak: 'piXQ5CgHFqEefqCVbhhBFfe6HjF7l4zW'
+     	});
+		new Vue({
+			el:"#app",
+			data:{
+				center: {lng: 115.475853, lat: 33.866295}
+			}
+		})
+	</script>
+	
+	<style type="text/css">
+		.bm-view{
+			height:100%;
+			width:100%;
+		}
+	</style>
+
+</body>
+</html>
